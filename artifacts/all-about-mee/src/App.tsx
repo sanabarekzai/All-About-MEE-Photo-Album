@@ -197,7 +197,7 @@ function Home() {
       <header className="site-header">
         <div className="site-heading">
           <span className="eyebrow">All about MEE</span>
-          <h1>9 Photo Grid Album</h1>
+          <h1>Sana Barekzai&apos;s Album</h1>
         </div>
         <p className="header-note">Click a photo to see more</p>
       </header>
