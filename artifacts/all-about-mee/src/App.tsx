@@ -10,34 +10,22 @@ type Photo = {
 
 const photos: Photo[] = [
   {
-    src: 'https://static.vecteezy.com/system/resources/thumbnails/041/448/144/small/ai-generated-beautiful-landscape-scenery-nature-professionalgraphy-photo.jpg',
-    title: 'Dreamy place',
-    description: 'A landscape picture that makes me feel calm.',
-    alt: 'Dreamy place',
-  },
-  {
-    src: 'https://images.pexels.com/photos/36594706/pexels-photo-36594706.jpeg',
-    title: 'Cute cat',
-    description: 'my dream cat I want to have.',
-    alt: 'Cute cat',
-  },
-  {
-    src: 'https://images.pexels.com/photos/36591054/pexels-photo-36591054.jpeg',
-    title: 'Cadillac',
-    description: 'My favorite car.',
-    alt: 'Cadillac',
-  },
-  {
     src: 'https://images.pexels.com/photos/30554306/pexels-photo-30554306.jpeg',
     title: 'Dubai',
     description: 'My favorite vocation place.',
     alt: 'Dubai',
   },
   {
-    src: 'https://images.pexels.com/photos/30943345/pexels-photo-30943345.jpeg',
-    title: 'Pilot',
-    description: 'Dream job: flying planes.',
-    alt: 'Pilot',
+    src: 'https://static.vecteezy.com/system/resources/thumbnails/041/448/144/small/ai-generated-beautiful-landscape-scenery-nature-professionalgraphy-photo.jpg',
+    title: 'Dreamy place',
+    description: 'A landscape picture that makes me feel calm.',
+    alt: 'Dreamy place',
+  },
+  {
+    src: 'https://images.pexels.com/photos/34304261/pexels-photo-34304261.jpeg',
+    title: 'UCLA university',
+    description: 'my favorite university that I am planning to attend.',
+    alt: 'UCLA university',
   },
   {
     src: 'https://images.pexels.com/photos/27681035/pexels-photo-27681035.jpeg',
@@ -58,10 +46,22 @@ const photos: Photo[] = [
     alt: 'Basketball',
   },
   {
-    src: 'https://images.pexels.com/photos/34304261/pexels-photo-34304261.jpeg',
-    title: 'UCLA university',
-    description: 'my favorite university that I am planning to attend.',
-    alt: 'UCLA university',
+    src: 'https://images.pexels.com/photos/30943345/pexels-photo-30943345.jpeg',
+    title: 'Pilot',
+    description: 'Dream job: flying planes.',
+    alt: 'Pilot',
+  },
+  {
+    src: 'https://images.pexels.com/photos/36591054/pexels-photo-36591054.jpeg',
+    title: 'Cadillac',
+    description: 'My favorite car.',
+    alt: 'Cadillac',
+  },
+  {
+    src: 'https://images.pexels.com/photos/36594706/pexels-photo-36594706.jpeg',
+    title: 'Cute cat',
+    description: 'my dream cat I want to have.',
+    alt: 'Cute cat',
   },
 ];
 
