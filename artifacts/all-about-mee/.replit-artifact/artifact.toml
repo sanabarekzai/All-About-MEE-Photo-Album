@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "All About MEE"
+description = "A personal photo album that presents favorite places, interests, dreams, and memories in an interactive gallery with a focused lightbox view."
+version = "1.0.0"
+id = "artifacts/all-about-mee"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19090
+
+[services.development]
+run = "pnpm --filter @workspace/all-about-mee run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/all-about-mee", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/all-about-mee/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19090"
+BASE_PATH = "/"
