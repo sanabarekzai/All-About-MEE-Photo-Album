@@ -8,6 +8,12 @@ type Photo = {
   alt: string;
 };
 
+type QuizQuestion = {
+  prompt: string;
+  options: string[];
+  correctIndex: number;
+};
+
 const photos: Photo[] = [
   {
     src: 'https://images.pexels.com/photos/30554306/pexels-photo-30554306.jpeg',
@@ -62,6 +68,59 @@ const photos: Photo[] = [
     title: 'Cute cat',
     description: 'my dream cat I want to have.',
     alt: 'Cute cat',
+  },
+];
+
+const quizQuestions: QuizQuestion[] = [
+  {
+    prompt: 'What color makes Sana say, “this is so me”?',
+    options: ['Pink', 'Sage green', 'Sunset orange', 'Electric blue'],
+    correctIndex: 0,
+  },
+  {
+    prompt: 'Which food would Sana happily order again and again?',
+    options: ['Pizza', 'Mantu', 'Tacos', 'Sushi'],
+    correctIndex: 1,
+  },
+  {
+    prompt: 'Where is Sana’s dream escape?',
+    options: ['Paris', 'Seoul', 'Dubai', 'New York'],
+    correctIndex: 2,
+  },
+  {
+    prompt: 'What does Sana famously forget?',
+    options: ['Birthdays', 'Where she parked', 'Movie endings', 'Her sunglasses'],
+    correctIndex: 0,
+  },
+  {
+    prompt: 'Which sport already has a place in Sana’s album?',
+    options: ['Tennis', 'Basketball', 'Volleyball', 'Badminton'],
+    correctIndex: 1,
+  },
+  {
+    prompt: 'What is Sana’s dream job?',
+    options: ['Fashion designer', 'Chef', 'Pilot', 'Film director'],
+    correctIndex: 2,
+  },
+  {
+    prompt: 'Which car has Sana’s heart?',
+    options: ['Vintage Beetle', 'Cadillac', 'Convertible Mini', 'White Jeep'],
+    correctIndex: 1,
+  },
+  {
+    prompt: 'Which university is part of Sana’s future plans?',
+    options: ['UCLA', 'NYU', 'Stanford', 'USC'],
+    correctIndex: 0,
+  },
+  {
+    prompt: 'What is Sana’s dream hobby?',
+    options: ['Pottery', 'Surfing', 'Hiking', 'Roller skating'],
+    correctIndex: 2,
+  },
+  {
+    prompt: 'What dream pet would Sana love to have?',
+    options: ['A bunny', 'A cat', 'A tiny goat', 'A golden retriever'],
+    correctIndex: 1,
   },
 ];
 
@@ -214,6 +273,120 @@ function PhotoModal({
   );
 }
 
+function SanaQuiz() {
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+  const [score, setScore] = useState(0);
+
+  const isComplete = questionIndex >= quizQuestions.length;
+  const question = quizQuestions[questionIndex];
+  const progress = isComplete ? 100 : ((questionIndex + 1) / quizQuestions.length) * 100;
+
+  const handleAnswer = (answerIndex: number) => {
+    if (selectedAnswer !== null) return;
+    setSelectedAnswer(answerIndex);
+    if (answerIndex === question.correctIndex) {
+      setScore((currentScore) => currentScore + 1);
+    }
+  };
+
+  const handleNext = () => {
+    setQuestionIndex((currentIndex) => currentIndex + 1);
+    setSelectedAnswer(null);
+  };
+
+  const handleRestart = () => {
+    setQuestionIndex(0);
+    setSelectedAnswer(null);
+    setScore(0);
+  };
+
+  return (
+    <section className="quiz-section" aria-labelledby="quiz-title">
+      <div className="quiz-header">
+        <span className="quiz-kicker">A tiny pop quiz</span>
+        <h2 id="quiz-title">Do you know Sana?</h2>
+        <p>Only the real ones get a perfect score. No pressure… probably.</p>
+      </div>
+
+      <div className="quiz-card">
+        <div className="quiz-progress-row">
+          <span>{isComplete ? 'Quiz complete' : `Question ${questionIndex + 1} of ${quizQuestions.length}`}</span>
+          <span className="quiz-score">Score: {score}</span>
+        </div>
+        <div className="quiz-progress-track" aria-hidden="true">
+          <span style={{ width: `${progress}%` }} />
+        </div>
+
+        {isComplete ? (
+          <div className="quiz-result" aria-live="polite">
+            <span className="quiz-result-badge">{score === quizQuestions.length ? 'Sana certified' : 'Quiz complete'}</span>
+            <strong>
+              {score} / {quizQuestions.length}
+            </strong>
+            <p>
+              {score === quizQuestions.length
+                ? 'Perfect score. Sana would definitely remember your birthday.'
+                : score >= 4
+                  ? 'You know Sana pretty well. Just a few more album visits and you’ll be unstoppable.'
+                  : 'You may need a quick tour through the album before the next round.'}
+            </p>
+            <button type="button" className="quiz-restart" onClick={handleRestart}>
+              Try again
+            </button>
+          </div>
+        ) : (
+          <div className="quiz-question">
+            <h3>{question.prompt}</h3>
+            <div className="quiz-options" role="group" aria-label="Answer choices">
+              {question.options.map((option, optionIndex) => {
+                const isSelected = selectedAnswer === optionIndex;
+                const isCorrect = optionIndex === question.correctIndex;
+                const answerState =
+                  selectedAnswer === null
+                    ? ''
+                    : isCorrect
+                      ? ' is-correct'
+                      : isSelected
+                        ? ' is-wrong'
+                        : '';
+
+                return (
+                  <button
+                    type="button"
+                    className={`quiz-option${isSelected ? ' is-selected' : ''}${answerState}`}
+                    key={option}
+                    onClick={() => handleAnswer(optionIndex)}
+                    disabled={selectedAnswer !== null}
+                    aria-pressed={isSelected}
+                  >
+                    <span className="quiz-option-letter">{String.fromCharCode(65 + optionIndex)}</span>
+                    <span>{option}</span>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="quiz-actions" aria-live="polite">
+              {selectedAnswer !== null ? (
+                <>
+                  <span className="quiz-feedback">
+                    {selectedAnswer === question.correctIndex ? 'That’s right!' : `The answer is ${question.options[question.correctIndex]}.`}
+                  </span>
+                  <button type="button" className="quiz-next" onClick={handleNext}>
+                    {questionIndex === quizQuestions.length - 1 ? 'See my score' : 'Next question'}
+                  </button>
+                </>
+              ) : (
+                <span className="quiz-hint">Pick the answer that feels most Sana.</span>
+              )}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -281,6 +454,8 @@ function Home() {
           </button>
         ))}
       </section>
+
+      <SanaQuiz />
 
       <footer className="site-footer">
         <span>All about MEE</span>
