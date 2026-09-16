@@ -247,6 +247,9 @@ function Home() {
         <span className="decorative-planet decorative-planet-two" />
         <span className="constellation-line constellation-line-one" />
         <span className="constellation-line constellation-line-two" />
+        <span className="decorative-flower decorative-flower-one" />
+        <span className="decorative-flower decorative-flower-two" />
+        <span className="decorative-flower decorative-flower-three" />
       </div>
       <header className="site-header">
         <div className="site-heading">
