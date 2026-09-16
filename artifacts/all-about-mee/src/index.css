@@ -72,16 +72,33 @@ a {
 
 .falling-star {
   animation: star-fall linear infinite, star-twinkle 3.5s ease-in-out infinite;
-  background: #c96656;
+  background: #f0bf7b;
   border-radius: 50%;
-  box-shadow: 0 0 8px rgb(201 102 86 / 60%);
+  box-shadow:
+    0 0 7px 2px rgb(240 191 123 / 80%),
+    0 0 18px 5px rgb(201 102 86 / 42%);
+  min-height: 4px;
+  min-width: 4px;
   position: absolute;
   transform: translateY(-12vh);
 }
 
+.falling-star::after {
+  background: #fff9e8;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 3px rgb(255 249 232 / 90%);
+  content: '';
+  inset: 18%;
+  position: absolute;
+}
+
 .falling-star-large {
-  background: #dba26f;
-  box-shadow: 0 0 14px rgb(219 162 111 / 75%);
+  background: #ffd892;
+  box-shadow:
+    0 0 10px 3px rgb(255 216 146 / 95%),
+    0 0 25px 8px rgb(201 102 86 / 48%);
+  min-height: 7px;
+  min-width: 7px;
 }
 
 .shooting-star {
