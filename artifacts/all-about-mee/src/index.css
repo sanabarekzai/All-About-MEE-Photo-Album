@@ -321,6 +321,171 @@ a {
   transform: scale(0.6) rotate(-10deg);
 }
 
+.butterfly-swarm {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+}
+
+.butterfly {
+  --butterfly-color: #dc756c;
+  animation: butterfly-loop 9s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent 42%, #7d534e 43% 57%, transparent 58%);
+  height: 22px;
+  opacity: 0.62;
+  position: absolute;
+  width: 28px;
+}
+
+.butterfly::before,
+.butterfly::after {
+  background: var(--butterfly-color);
+  content: '';
+  height: 20px;
+  position: absolute;
+  top: 1px;
+  width: 15px;
+}
+
+.butterfly::before {
+  clip-path: polygon(50% 0, 100% 25%, 88% 70%, 55% 100%, 42% 54%, 0 35%);
+  left: 0;
+  transform: rotate(-12deg);
+}
+
+.butterfly::after {
+  clip-path: polygon(50% 0, 100% 35%, 58% 54%, 45% 100%, 12% 70%, 0 25%);
+  right: 0;
+  transform: rotate(12deg);
+}
+
+.butterfly:nth-child(1) {
+  --butterfly-color: #d96565;
+  left: 3%;
+  top: 19%;
+}
+
+.butterfly:nth-child(2) {
+  --butterfly-color: #e5a06f;
+  animation-delay: -2.7s;
+  left: 12%;
+  top: 43%;
+  transform: scale(0.72);
+}
+
+.butterfly:nth-child(3) {
+  --butterfly-color: #c77b91;
+  animation-delay: -5.1s;
+  left: 20%;
+  top: 12%;
+  transform: scale(0.58);
+}
+
+.butterfly:nth-child(4) {
+  --butterfly-color: #e8b27a;
+  animation-delay: -7.2s;
+  left: 27%;
+  top: 72%;
+  transform: scale(0.82);
+}
+
+.butterfly:nth-child(5) {
+  --butterfly-color: #cf6670;
+  animation-delay: -3.8s;
+  left: 39%;
+  top: 31%;
+  transform: scale(0.52);
+}
+
+.butterfly:nth-child(6) {
+  --butterfly-color: #d98f88;
+  animation-delay: -8.1s;
+  left: 47%;
+  top: 80%;
+  transform: scale(0.68);
+}
+
+.butterfly:nth-child(7) {
+  --butterfly-color: #d76b61;
+  animation-delay: -1.3s;
+  left: 57%;
+  top: 17%;
+  transform: scale(0.76);
+}
+
+.butterfly:nth-child(8) {
+  --butterfly-color: #efb577;
+  animation-delay: -6.2s;
+  left: 66%;
+  top: 61%;
+  transform: scale(0.54);
+}
+
+.butterfly:nth-child(9) {
+  --butterfly-color: #bd718d;
+  animation-delay: -4.6s;
+  left: 76%;
+  top: 29%;
+  transform: scale(0.9);
+}
+
+.butterfly:nth-child(10) {
+  --butterfly-color: #de7568;
+  animation-delay: -7.7s;
+  left: 87%;
+  top: 14%;
+  transform: scale(0.65);
+}
+
+.butterfly:nth-child(11) {
+  --butterfly-color: #e3a16e;
+  animation-delay: -2.1s;
+  left: 92%;
+  top: 54%;
+  transform: scale(0.82);
+}
+
+.butterfly:nth-child(12) {
+  --butterfly-color: #c96778;
+  animation-delay: -5.7s;
+  left: 81%;
+  top: 83%;
+  transform: scale(0.55);
+}
+
+.butterfly:nth-child(13) {
+  --butterfly-color: #e4ae78;
+  animation-delay: -8.8s;
+  left: 68%;
+  top: 92%;
+  transform: scale(0.72);
+}
+
+.butterfly:nth-child(14) {
+  --butterfly-color: #d36c6d;
+  animation-delay: -3.1s;
+  left: 33%;
+  top: 91%;
+  transform: scale(0.62);
+}
+
+.butterfly:nth-child(15) {
+  --butterfly-color: #c97988;
+  animation-delay: -6.9s;
+  left: 8%;
+  top: 88%;
+  transform: scale(0.48);
+}
+
+.butterfly:nth-child(16) {
+  --butterfly-color: #e6a56e;
+  animation-delay: -1.9s;
+  left: 52%;
+  top: 6%;
+  transform: scale(0.45);
+}
+
 .site-header,
 .site-footer {
   align-items: flex-end;
@@ -679,6 +844,33 @@ a {
   }
 }
 
+@keyframes butterfly-loop {
+  0%, 100% {
+    margin-left: 0;
+    margin-top: 0;
+    opacity: 0.2;
+    transform: rotate(-12deg) scale(0.72);
+  }
+  25% {
+    margin-left: 34px;
+    margin-top: -23px;
+    opacity: 0.7;
+    transform: rotate(10deg) scale(1);
+  }
+  50% {
+    margin-left: 8px;
+    margin-top: -49px;
+    opacity: 0.84;
+    transform: rotate(-4deg) scale(0.88);
+  }
+  75% {
+    margin-left: -29px;
+    margin-top: -19px;
+    opacity: 0.58;
+    transform: rotate(15deg) scale(0.96);
+  }
+}
+
 @media (max-width: 760px) {
   .album-page {
     padding: 22px 17px 20px;
@@ -740,7 +932,9 @@ a {
 
   .falling-star,
   .shooting-star,
-  .ambient-sparkle {
+  .ambient-sparkle,
+  .decorative-flower,
+  .butterfly {
     animation: none !important;
   }
 }

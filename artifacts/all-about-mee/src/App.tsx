@@ -250,6 +250,11 @@ function Home() {
         <span className="decorative-flower decorative-flower-one" />
         <span className="decorative-flower decorative-flower-two" />
         <span className="decorative-flower decorative-flower-three" />
+        <div className="butterfly-swarm" aria-hidden="true">
+          {Array.from({ length: 16 }, (_, index) => (
+            <span className="butterfly" key={index} />
+          ))}
+        </div>
       </div>
       <header className="site-header">
         <div className="site-heading">
