@@ -230,7 +230,7 @@ function Home() {
               width: `${size}px`,
               height: `${size}px`,
               animationDelay: `${index * -1.6}s`,
-              animationDuration: `${duration}s`,
+              animationDuration: `${Math.max(6, duration / 2)}s`,
               opacity,
             }}
           />

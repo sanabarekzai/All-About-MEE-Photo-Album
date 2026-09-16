@@ -72,11 +72,12 @@ a {
 
 .falling-star {
   animation: star-fall linear infinite, star-twinkle 3.5s ease-in-out infinite;
-  background: #f0bf7b;
+  background: #ffe6aa;
   border-radius: 50%;
+  border: 1px solid #c96656;
   box-shadow:
-    0 0 7px 2px rgb(240 191 123 / 80%),
-    0 0 18px 5px rgb(201 102 86 / 42%);
+    0 0 0 1px rgb(255 230 170 / 80%),
+    0 0 6px rgb(201 102 86 / 52%);
   min-height: 4px;
   min-width: 4px;
   position: absolute;
@@ -86,23 +87,23 @@ a {
 .falling-star::after {
   background: #fff9e8;
   border-radius: 50%;
-  box-shadow: 0 0 8px 3px rgb(255 249 232 / 90%);
   content: '';
-  inset: 18%;
+  inset: 27%;
   position: absolute;
 }
 
 .falling-star-large {
-  background: #ffd892;
+  background: #fff1c9;
+  border-color: #b84f4a;
   box-shadow:
-    0 0 10px 3px rgb(255 216 146 / 95%),
-    0 0 25px 8px rgb(201 102 86 / 48%);
+    0 0 0 1px rgb(255 241 201 / 95%),
+    0 0 9px rgb(201 102 86 / 62%);
   min-height: 7px;
   min-width: 7px;
 }
 
 .shooting-star {
-  animation: shooting-star 10s linear infinite;
+  animation: shooting-star 6s linear infinite;
   background: linear-gradient(90deg, transparent, rgb(201 102 86 / 65%));
   border-radius: 999px;
   height: 1px;
