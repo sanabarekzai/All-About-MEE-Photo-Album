@@ -241,6 +241,12 @@ function Home() {
         <span className="ambient-sparkle ambient-sparkle-one" />
         <span className="ambient-sparkle ambient-sparkle-two" />
         <span className="ambient-sparkle ambient-sparkle-three" />
+        <span className="ambient-sparkle ambient-sparkle-four" />
+        <span className="ambient-sparkle ambient-sparkle-five" />
+        <span className="decorative-planet decorative-planet-one" />
+        <span className="decorative-planet decorative-planet-two" />
+        <span className="constellation-line constellation-line-one" />
+        <span className="constellation-line constellation-line-two" />
       </div>
       <header className="site-header">
         <div className="site-heading">

@@ -73,8 +73,18 @@ a {
 .falling-star {
   animation: star-fall linear infinite, star-twinkle 3.5s ease-in-out infinite;
   background: #ffe6aa;
-  border-radius: 50%;
-  border: 1px solid #c96656;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 96%,
+    50% 73%,
+    21% 96%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
   box-shadow:
     0 0 0 1px rgb(255 230 170 / 80%),
     0 0 6px rgb(201 102 86 / 52%);
@@ -86,20 +96,19 @@ a {
 
 .falling-star::after {
   background: #fff9e8;
-  border-radius: 50%;
+  clip-path: inherit;
   content: '';
-  inset: 27%;
+  inset: 28%;
   position: absolute;
 }
 
 .falling-star-large {
   background: #fff1c9;
-  border-color: #b84f4a;
   box-shadow:
     0 0 0 1px rgb(255 241 201 / 95%),
     0 0 9px rgb(201 102 86 / 62%);
-  min-height: 7px;
-  min-width: 7px;
+  min-height: 11px;
+  min-width: 11px;
 }
 
 .shooting-star {
@@ -162,6 +171,92 @@ a {
   bottom: 18%;
   left: 30%;
   opacity: 0.3;
+}
+
+.ambient-sparkle-four {
+  animation-delay: -1.8s;
+  right: 38%;
+  top: 8%;
+  transform: scale(0.7);
+}
+
+.ambient-sparkle-five {
+  animation-delay: -0.5s;
+  bottom: 9%;
+  right: 20%;
+  transform: scale(0.55);
+}
+
+.decorative-planet {
+  border: 1px solid rgb(201 102 86 / 28%);
+  border-radius: 50%;
+  height: 54px;
+  opacity: 0.75;
+  position: absolute;
+  width: 54px;
+}
+
+.decorative-planet::before {
+  border: 1px solid rgb(201 102 86 / 38%);
+  border-radius: 50%;
+  content: '';
+  height: 14px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+}
+
+.decorative-planet::after {
+  border: 1px solid rgb(219 162 111 / 45%);
+  border-radius: 50%;
+  content: '';
+  height: 76px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-24deg);
+  width: 20px;
+}
+
+.decorative-planet-one {
+  right: 5%;
+  top: 38%;
+}
+
+.decorative-planet-two {
+  bottom: 12%;
+  height: 34px;
+  left: 8%;
+  opacity: 0.45;
+  width: 34px;
+}
+
+.decorative-planet-two::after {
+  height: 48px;
+  width: 14px;
+}
+
+.constellation-line {
+  background: linear-gradient(90deg, transparent, rgb(201 102 86 / 25%), transparent);
+  height: 1px;
+  opacity: 0.65;
+  position: absolute;
+  width: 130px;
+}
+
+.constellation-line-one {
+  right: 18%;
+  top: 28%;
+  transform: rotate(-26deg);
+}
+
+.constellation-line-two {
+  bottom: 26%;
+  left: 16%;
+  transform: rotate(32deg);
+  width: 95px;
 }
 
 .site-header,
