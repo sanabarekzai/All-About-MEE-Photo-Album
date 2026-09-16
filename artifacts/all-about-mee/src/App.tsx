@@ -65,6 +65,31 @@ const photos: Photo[] = [
   },
 ];
 
+const starPositions = [
+  [7, 5, 3, 15, 0.42],
+  [16, 18, 2, 19, 0.3],
+  [25, 4, 4, 22, 0.52],
+  [34, 27, 2, 17, 0.34],
+  [43, 11, 3, 24, 0.45],
+  [52, 34, 2, 20, 0.28],
+  [61, 8, 4, 18, 0.5],
+  [70, 24, 2, 21, 0.36],
+  [79, 2, 3, 23, 0.42],
+  [88, 31, 2, 17, 0.3],
+  [95, 13, 4, 25, 0.48],
+  [12, 47, 2, 20, 0.35],
+  [29, 62, 3, 18, 0.45],
+  [47, 52, 2, 23, 0.29],
+  [67, 66, 4, 21, 0.4],
+  [84, 54, 2, 19, 0.32],
+  [4, 78, 3, 24, 0.46],
+  [21, 88, 2, 16, 0.31],
+  [39, 76, 4, 22, 0.44],
+  [58, 91, 2, 18, 0.3],
+  [76, 82, 3, 20, 0.4],
+  [92, 72, 2, 24, 0.28],
+];
+
 function PhotoImage({
   photo,
   eager = false,
@@ -194,6 +219,29 @@ function Home() {
 
   return (
     <main className="album-page">
+      <div className="starfield" aria-hidden="true">
+        {starPositions.map(([left, top, size, duration, opacity], index) => (
+          <span
+            className={`falling-star${size > 3 ? ' falling-star-large' : ''}`}
+            key={`${left}-${top}`}
+            style={{
+              left: `${left}%`,
+              top: `${top}%`,
+              width: `${size}px`,
+              height: `${size}px`,
+              animationDelay: `${index * -1.6}s`,
+              animationDuration: `${duration}s`,
+              opacity,
+            }}
+          />
+        ))}
+        <span className="shooting-star shooting-star-one" />
+        <span className="shooting-star shooting-star-two" />
+        <span className="shooting-star shooting-star-three" />
+        <span className="ambient-sparkle ambient-sparkle-one" />
+        <span className="ambient-sparkle ambient-sparkle-two" />
+        <span className="ambient-sparkle ambient-sparkle-three" />
+      </div>
       <header className="site-header">
         <div className="site-heading">
           <span className="eyebrow">All about MEE</span>
